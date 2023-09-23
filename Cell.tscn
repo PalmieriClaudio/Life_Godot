@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c54pcb7c06vaw"]
+
+[ext_resource type="Script" path="res://Cell.gd" id="1_l0xdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw8n"]
+size = Vector2(40, 40)
+
+[node name="ColorRect" type="ColorRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_l0xdl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_pbw8n")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
